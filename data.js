@@ -16,12 +16,22 @@ function dataGrab() {
     if (count == "") {
         document.getElementById('count-error').innerHTML = 'Vui lòng nhập số lượng!' ;
     } else {
+        if (isNaN(count)){
+            document.getElementById('count-error').innerHTML = 'Số lượng không hợp lệ!';
+            return;
+        } else {
         document.getElementById('count-error').innerHTML = '' ;
+        }
     }
     if (price == "") {
         document.getElementById('price-error').innerHTML = 'Vui lòng nhập giá tiền sản phẩm!' ;
     } else {
+        if(isNaN(price)){
+            document.getElementById('price-error').innerHTML = 'Giá không hợp lệ!';
+            return;
+        } else {
         document.getElementById('price-error').innerHTML = '' ;
+        }
     }
 
 console.log(itemname, manufacturer, count, price);
@@ -45,7 +55,7 @@ if (itemname&&manufacturer&&count&&price){
     <td>Giá</td>
     <td>Hành động</td>
     </tr>`;
-    item.array.forEach((item,index) => {
+    item.forEach((item,index) => {
         let itemid = index;
         index ++;
         tableContent += `<tr>
@@ -55,7 +65,7 @@ if (itemname&&manufacturer&&count&&price){
         <td>${item.count}</td>
         <td>${item.price}</td>
         <td>
-            <a href='STT' onclick = 'edititem(${itemid})' >Sửa</a> | <a href='STT' onclick = 'deleteitem(${itemid})' >Xóa</a>
+            <a href='#' onclick = 'change(${itemid})' >Sửa</a> | <a href='#' onclick = 'yeet(${itemid})' >Xóa</a>
         </td>
     </tr>`;
     })
@@ -76,7 +86,7 @@ function render(){
     <td>Giá</td>
     <td>Hành động</td>
     </tr>`;
-    item.array.forEach((item,index) => {
+    item.forEach((item,index) => {
         let itemid = index;
         index ++;
         tableContent += `<tr>
@@ -86,7 +96,7 @@ function render(){
         <td>${item.count}</td>
         <td>${item.price}</td>
         <td>
-            <a href='STT' onclick = 'edititem(${itemid})' >Sửa</a> | <a href='STT' onclick = 'deleteitem(${itemid})' >Xóa</a>
+            <a href='#' onclick = 'change(${itemid})' >Sửa</a> | <a href='#' onclick = 'yeet(${itemid})' >Xóa</a>
         </td>
     </tr>`;
     })
@@ -105,12 +115,12 @@ function change(id){
     document.getElementById('count').value=item[id].count;
     document.getElementById('price').value=item[id].price;
     document.getElementById('index').value=id;
-    document.getElementById('grabData').style.display="none";
+    document.getElementById('dataGrab').style.display="none";
     document.getElementById('upd8').style.display="inline-block"
 }
 function upd8(){
     let item = localStorage.getItem('item')?JSON.parse(localStorage.getItem('item')):[];
-    let index = document.getElementById('index')
+    let index = document.getElementById('index').value
     item[index]={
         itemname:document.getElementById('itemname').value,
         manufacturer:document.getElementById('manufacturer').value,
@@ -119,6 +129,6 @@ function upd8(){
     }
     localStorage.setItem('item',JSON.stringify(item));
     render();
-    document.getElementById('grabData').style.display="inline-block";
+    document.getElementById('dataGrab').style.display="inline-block";
     document.getElementById('upd8').style.display="none";
 }
