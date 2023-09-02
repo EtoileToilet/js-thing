@@ -26,7 +26,7 @@ function dataGrab() {
     if (price == "") {
         document.getElementById('price-error').innerHTML = 'Vui lòng nhập giá tiền sản phẩm!' ;
     } else {
-        if(isNaN(price)){
+        if (isNaN(price)){
             document.getElementById('price-error').innerHTML = 'Giá không hợp lệ!';
             return;
         } else {
