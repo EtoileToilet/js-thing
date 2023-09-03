@@ -1,6 +1,6 @@
 body {
     background: #f0f0f0;
-    font-family: 'Open Sans';
+    font-family: 'Roboto';
     padding: 0;
     margin: 0;
 }
@@ -30,7 +30,7 @@ body {
 }
 .info span {color: crimson;}
 
-button {margin-top: 15px; font-family: 'Open Sans';}
+button {margin-top: 15px; font-family: 'Roboto';}
 
 .item-listings table {
     width: 600px;
