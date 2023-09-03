@@ -4,22 +4,22 @@ body {
     margin: 0;
 }
 
-.info , .item.listing {
-    width: 500px;
-    border: 2px violet;
+.info , .item-listings {
+    width: fit-content;
+    border: 2px solid gray;
     margin: 10px;
     padding: 10px;
 }
 
 .info {float: left;}
-.item.listing {float: right;}
+.item-listings {float: left;}
 
 .info h2 {
     padding: 0%;
     margin-top: 0%;
 }
 .info label {
-    width: 750px;
+    width: 150px;
     float: left;
 }
 .info input, button {
@@ -31,13 +31,13 @@ body {
 
 button {margin-top: 15px;}
 
-.item.listing table {
+.item-listings table {
     width: 600px;
     border: 3px violet;
 }
 
-.item.listing table td, tr {
-    border: 3px violet;
-    width: 20%;
-    padding: 35px;
+.item-listings table td, tr {
+    border: 1.5px dashed gray;
+    width: fit-content;
+    padding: 2px;
 }

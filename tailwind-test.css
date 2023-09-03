@@ -1,0 +1,55 @@
+body {
+    background-color: #f0f0f0;
+  }
+  
+  .info,
+  .item.listing {
+    max-width: 500px;
+    border: 2px solid violet;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .info {
+    float: left;
+  }
+  
+  .item.listing {
+    float: right;
+  }
+  
+  .info h2 {
+    padding: 0;
+    margin-top: 0;
+  }
+  
+  .info label {
+    width: 100%;
+  }
+  
+  .info input,
+  .info button {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .info span {
+    color: crimson;
+  }
+  
+  button {
+    margin-top: 15px;
+  }
+  
+  .item.listing table {
+    width: 100%;
+    border: 3px solid violet;
+  }
+  
+  .item.listing table td,
+  .item.listing table tr {
+    border: 3px solid violet;
+    width: 20%;
+    padding: 35px;
+  }
