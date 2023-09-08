@@ -41,6 +41,7 @@ body {
 .item-listings {width: fit-content}
 
 .info h2 {
+    text-align: center;
     padding: 0%;
     margin-top: 0%;
 }
@@ -69,13 +70,8 @@ button {margin-top: 15px; font-family: 'Roboto';}
     padding: 2px;
 }
 
-.nen .nen2 {
-    position:fixed;
-    top:0px;
-    left:0px;
-    width:100vw;
-    height:100vh;
-    background:rgba(0,0,0,0.7);
-    z-index:1;
-    display:none;
+.item-listings input {
+    margin-bottom: 15px;
+    width: 150px;
+    padding: 10px;
 }

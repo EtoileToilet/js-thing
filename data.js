@@ -9,7 +9,6 @@ function dataGrab() {
     let count = document.getElementById('count').value;
     let price = document.getElementById('price').value;
     submitOK = "true";
-    console.log(submitOK)
     if (itemname == "") {
         document.getElementById('itemname-error').innerHTML = 'Vui lòng nhập tên sản phẩm!' ;
         submitOK = "false";
@@ -164,3 +163,42 @@ function upd8(){
     document.getElementById('upd8').style.display="none";
     modal.style.display = "none";
 }
+
+function whereIs() {
+    item=localStorage.getItem('item')?JSON.parse(localStorage.getItem('item')):[];
+    let input = document.getElementById('search').value.toLowerCase();
+    let filteredItems = item.filter((e) => {
+        return Object.values(e).some((value) => {
+            return value.includes(input);
+        });
+    });
+    console.log(filteredItems);
+    if (filteredItems.length===0){
+        document.getElementById('item-listings').style.display='none';
+    }
+    document.getElementById('item-listings').style.display='block';
+    let tableContent = `<tr>
+    <td>STT</td>
+    <td>Tên mặt hàng</td>
+    <td>NSX</td>
+    <td>Số lượng</td>
+    <td>Giá</td>
+    <td>Hành động</td>
+    </tr>`;
+    filteredItems.forEach((filteredItems,index) => {
+        let itemid = index;
+        index ++;
+        tableContent += `<tr>
+        <td> ${index} </td>
+        <td>${filteredItems.itemname}</td>
+        <td>${filteredItems.manufacturer}</td>
+        <td>${filteredItems.count}</td>
+        <td>${filteredItems.price}</td>
+        <td>
+            <a href='#' onclick = 'change(${itemid})' >Sửa</a> | <a href='#' onclick = 'yeet(${itemid})' >Xóa</a>
+        </td>
+    </tr>`;
+    })
+    document.getElementById('grid').innerHTML = tableContent;
+}
+
